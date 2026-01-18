@@ -107,14 +107,8 @@ const r = [
   {
     id: 7,
     title: "اليوم السابع",
-    links: [
-      {
-        id: "d7f1",
-        label: "قراءة فقه 📄",
-        url: "ملخص في أهم أحكام الحيض.pdf",
-        isPdf: !0,
-      },
-    ],
+    links: [],
+    pdfFile: "ملخص في أهم أحكام الحيض.pdf",
     message: "يرجى القراءة بتركيز على البطاقة",
   },
   {
@@ -236,11 +230,15 @@ class p {
         const m = t.message
           ? `<div class="day-message">${t.message}</div>`
           : "";
+        const pdfContent = t.pdfFile
+          ? `<iframe src="${t.pdfFile}" class="pdf-viewer"></iframe>`
+          : "";
         ((l.innerHTML = `
         ${c}
         <div class="card-content">
           <h3>📅 ${t.title}</h3>
           ${m}
+          ${pdfContent}
           <div class="links-container">
             ${u}
           </div>
